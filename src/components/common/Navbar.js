@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import logo from "../../assets/img/Logo.png";
+import React from 'react';
+import styled from 'styled-components';
+import logo from '../../assets/img/Logo.png';
 
 const Navbar = () => {
   return (
@@ -50,6 +50,7 @@ const List = styled.ul`
   max-width: 50%;
   margin: 0;
   list-style: none;
+  align-items: center;
   a {
     color: white;
     text-decoration: none;

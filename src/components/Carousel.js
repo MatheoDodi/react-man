@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const Carousel = () => {
+const Carousel = ({ comics }) => {
   const [visibleComics, setVisibleComics] = useState(5);
 
   // computes how many slides should appear on the carousel depending on the window's width
@@ -32,7 +32,7 @@ const Carousel = () => {
   }, []);
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     arrows: false,
     speed: 500,
@@ -46,42 +46,13 @@ const Carousel = () => {
   return (
     <ComicSection>
       <Slider {...settings} slidesToShow={visibleComics}>
-        <Comic>
-          <Cover src="https://via.placeholder.com/225x340" />
-        </Comic>
-        <Comic>
-          <Cover src="https://via.placeholder.com/225x340" />
-        </Comic>
-        <Comic>
-          <Cover src="https://via.placeholder.com/225x340" />
-        </Comic>
-        <Comic>
-          <Cover src="https://via.placeholder.com/225x340" />
-        </Comic>
-        <Comic>
-          <Cover src="https://via.placeholder.com/225x340" />
-        </Comic>
-        <Comic>
-          <Cover src="https://via.placeholder.com/225x340" />
-        </Comic>
-        <Comic>
-          <Cover src="https://via.placeholder.com/225x340" />
-        </Comic>
-        <Comic>
-          <Cover src="https://via.placeholder.com/225x340" />
-        </Comic>
-        <Comic>
-          <Cover src="https://via.placeholder.com/225x340" />
-        </Comic>
-        <Comic>
-          <Cover src="https://via.placeholder.com/225x340" />
-        </Comic>
-        <Comic>
-          <Cover src="https://via.placeholder.com/225x340" />
-        </Comic>
-        <Comic>
-          <Cover src="https://via.placeholder.com/225x340" />
-        </Comic>
+        {comics.map(comic => (
+          <Comic key={comic.id}>
+            <Cover
+              src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+            />
+          </Comic>
+        ))}
       </Slider>
     </ComicSection>
   );

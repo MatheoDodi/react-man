@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import Features from "./Features";
+import React from 'react';
+import styled from 'styled-components';
+import Features from './Features';
 
-const Main = () => {
+const Main = ({ thumbnail }) => {
   return (
     <MainSection>
       <Heading>
@@ -10,7 +10,7 @@ const Main = () => {
       </Heading>
       <FeaturesWrapper>
         <div>
-          <img src="https://via.placeholder.com/470" />
+          <img src={thumbnail} />
         </div>
         <Features />
       </FeaturesWrapper>
@@ -25,7 +25,7 @@ const MainSection = styled.main`
 `;
 
 const Heading = styled.h1`
-  font-family: "Ropa Sans", sans-serif;
+  font-family: 'Ropa Sans', sans-serif;
   text-align: center;
   margin-bottom: 3.5rem;
 `;

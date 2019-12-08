@@ -1,21 +1,15 @@
-import React from "react";
-import styled from "styled-components";
-import ironManMain from "../assets/img/ironman-main.png";
-import Navbar from "./common/Navbar";
+import React from 'react';
+import styled from 'styled-components';
+import ironManMain from '../assets/img/ironman-main.png';
+import Navbar from './common/Navbar';
 
-const Hero = () => (
+const Hero = ({ description }) => (
   <Section>
     <ImgContainer>
       <IMG src={ironManMain} />
     </ImgContainer>
     <Wrapper>
-      <HeroText>
-        Wounded, captured and forced to build a weapon by his enemies,
-        billionaire industrialist Tony Stark instead created an advanced suit of
-        armor to save his life and escape captivity. Now with a new outlook on
-        life, Tony uses his money and intelligence to make the world a safer,
-        better place as Iron Man.
-      </HeroText>
+      <HeroText>{description} </HeroText>
       <CTAButton>Get Started</CTAButton>
     </Wrapper>
   </Section>
