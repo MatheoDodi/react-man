@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
+import LazyLoad from 'react-lazyload';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -43,26 +44,26 @@ const Carousel = ({ comics }) => {
     centerMode: true
   };
 
-  console.log('cover', comics);
-
   return (
     <ComicSection>
-      <Slider {...settings} slidesToShow={visibleComics}>
-        {comics.map(comic => (
-          <div key={comic.id}>
-            <a
-              href={comic.urls[0].url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Cover
-                src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
-                alt={`${comic.title} cover`}
-              />
-            </a>
-          </div>
-        ))}
-      </Slider>
+      <LazyLoad>
+        <Slider {...settings} slidesToShow={visibleComics}>
+          {comics.map(comic => (
+            <div key={comic.id}>
+              <a
+                href={comic.urls[0].url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Cover
+                  src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+                  alt={`${comic.title} cover`}
+                />
+              </a>
+            </div>
+          ))}
+        </Slider>
+      </LazyLoad>
     </ComicSection>
   );
 };

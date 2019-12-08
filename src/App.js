@@ -36,15 +36,18 @@ const App = () => {
     return <ErrorPage errors={errors} />;
   }
 
-  return loading || !character ? (
+  return false ? (
     <Spinner />
   ) : (
     <>
       <Navbar />
-      <Hero description={character.description} />
+      <Hero description={character && character.description} />
       <Main
-        thumbnail={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-        name={character.name}
+        thumbnail={
+          character &&
+          `${character.thumbnail.path}.${character.thumbnail.extension}`
+        }
+        name={character && character.name}
       />
       <Carousel comics={comics} />
     </>

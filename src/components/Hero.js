@@ -1,12 +1,12 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import styled from 'styled-components';
-import ironManMain from '../assets/img/ironman-main.png';
+import ironManMain from '../assets/img/iron-man.png';
 
 const Hero = ({ description }) => (
   <Section>
     <ImgContainer>
-      <IMG src={ironManMain} />
+      <IMG src={ironManMain} alt="Chibi Iron Man" />
     </ImgContainer>
     <Wrapper>
       <HeroText>{description} </HeroText>

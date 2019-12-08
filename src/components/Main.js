@@ -1,6 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import styled from 'styled-components';
+import LazyLoad from 'react-lazyload';
 import Features from './Features';
 
 const Main = ({ thumbnail, name }) => {
@@ -11,7 +12,9 @@ const Main = ({ thumbnail, name }) => {
       </Heading>
       <FeaturesWrapper>
         <div>
-          <img src={thumbnail} alt={`${name} thumbnail`} />
+          <LazyLoad>
+            <img src={thumbnail} alt={`${name} thumbnail`} />
+          </LazyLoad>
         </div>
         <Features />
       </FeaturesWrapper>
