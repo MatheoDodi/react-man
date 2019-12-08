@@ -29,7 +29,7 @@ const Carousel = ({ comics, loading }) => {
 
     return () => {
       // cleanup when the components unmounts
-      window.removeEventListener('resize');
+      window.removeEventListener('resize', calculateSlides);
     };
   }, []);
 
