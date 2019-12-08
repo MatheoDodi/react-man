@@ -79,9 +79,9 @@ const CTAButton = styled.button`
 const ImgContainer = styled.div`
   flex-basis: 35%;
   margin-right: 2rem;
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
     /* margin-right: 0; */
-    margin-top: 7rem;
+    margin-top: 25vw;
   }
 `;
 
