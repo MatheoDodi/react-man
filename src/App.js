@@ -5,18 +5,25 @@ import Main from './components/Main';
 import Carousel from './components/Carousel';
 import { getCharacterByName, getComicsByCharacterId } from './API/API';
 import Spinner from './components/common/Spinner';
+import { checkResponsesForErrors } from './utils/helpers';
+import ErrorPage from './components/common/ErrorPage';
 
 const App = () => {
   const [character, setCharacter] = useState(null);
   const [comics, setComics] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [errors, setErrors] = useState([]);
 
   useEffect(() => {
     (async () => {
       const charResponse = await getCharacterByName('Iron Man');
       const comicsResponse = await getComicsByCharacterId(charResponse.id);
-      if (charResponse.error || comicsResponse.error) {
-        //! TODO:  handle error
+
+      const totalErrors = checkResponsesForErrors(charResponse, comicsResponse);
+
+      if (totalErrors.length) {
+        setErrors(totalErrors);
+        return;
       }
 
       setCharacter(charResponse);
@@ -25,13 +32,20 @@ const App = () => {
     })();
   }, []);
 
-  return loading ? (
+  if (errors.length) {
+    return <ErrorPage errors={errors} />;
+  }
+
+  return loading || !character ? (
     <Spinner />
   ) : (
     <>
       <Navbar />
-      <Hero description={character && character.description} />
-      <Main thumbnail={character && character.thumbnail} />
+      <Hero description={character.description} />
+      <Main
+        thumbnail={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+        name={character.name}
+      />
       <Carousel comics={comics} />
     </>
   );

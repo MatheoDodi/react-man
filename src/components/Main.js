@@ -1,8 +1,9 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 import styled from 'styled-components';
 import Features from './Features';
 
-const Main = ({ thumbnail }) => {
+const Main = ({ thumbnail, name }) => {
   return (
     <MainSection>
       <Heading>
@@ -10,7 +11,7 @@ const Main = ({ thumbnail }) => {
       </Heading>
       <FeaturesWrapper>
         <div>
-          <img src={thumbnail} />
+          <img src={thumbnail} alt={`${name} thumbnail`} />
         </div>
         <Features />
       </FeaturesWrapper>
@@ -19,6 +20,11 @@ const Main = ({ thumbnail }) => {
 };
 
 export default Main;
+
+Main.propTypes = {
+  thumbnail: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired
+};
 
 const MainSection = styled.main`
   padding: 3rem 5.5vw;

@@ -1,7 +1,7 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 import styled from 'styled-components';
 import ironManMain from '../assets/img/ironman-main.png';
-import Navbar from './common/Navbar';
 
 const Hero = ({ description }) => (
   <Section>
@@ -16,6 +16,10 @@ const Hero = ({ description }) => (
 );
 
 export default Hero;
+
+Hero.propTypes = {
+  description: PropTypes.string.isRequired
+};
 
 const Section = styled.section`
   padding: 0 5.5vw;
@@ -65,8 +69,10 @@ const CTAButton = styled.button`
   width: 320px;
   border-radius: 5px;
   box-shadow: 3px 4px 9px rgba(360, 360, 360, 0.16);
+  transition: all 0.5s ease;
   :hover {
     background: radial-gradient(#f4bc00 5%, #cc3332);
+    cursor: pointer;
   }
 `;
 
@@ -74,7 +80,6 @@ const ImgContainer = styled.div`
   flex-basis: 35%;
   margin-right: 2rem;
   @media screen and (max-width: 800px) {
-    /* margin-right: 0; */
     margin-top: 25vw;
   }
 `;

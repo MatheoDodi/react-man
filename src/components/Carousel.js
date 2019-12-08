@@ -43,15 +43,24 @@ const Carousel = ({ comics }) => {
     centerMode: true
   };
 
+  console.log('cover', comics);
+
   return (
     <ComicSection>
       <Slider {...settings} slidesToShow={visibleComics}>
         {comics.map(comic => (
-          <Comic key={comic.id}>
-            <Cover
-              src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
-            />
-          </Comic>
+          <div key={comic.id}>
+            <a
+              href={comic.urls[0].url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Cover
+                src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+                alt={`${comic.title} cover`}
+              />
+            </a>
+          </div>
         ))}
       </Slider>
     </ComicSection>
@@ -64,11 +73,12 @@ const ComicSection = styled.div`
   padding: 4rem 0 2rem 0;
 `;
 
-const Comic = styled.div`
-  margin: 0 auto;
-`;
-
 const Cover = styled.img`
   height: 340px;
   width: 225px;
+  transition: all 0.3s ease;
+  :hover {
+    transform: scale(1.02);
+    cursor: pointer;
+  }
 `;

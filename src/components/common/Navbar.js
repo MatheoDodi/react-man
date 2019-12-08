@@ -6,11 +6,17 @@ const Navbar = () => {
   return (
     <Navigation>
       <Logo>
-        <img src={logo} />
+        <img src={logo} alt="Iron Man logo" />
       </Logo>
       <List>
         <li>
-          <a href="#">Sign in</a>
+          <a
+            href="https://www.weareenvoy.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Sign in
+          </a>
         </li>
         <li>
           <button>Sign up</button>
@@ -62,8 +68,10 @@ const List = styled.ul`
     padding: 10px 30px;
     border-radius: 3px;
     box-shadow: 3px 4px 9px rgba(360, 360, 360, 0.16);
+    transition: all 0.5s ease;
     :hover {
       background: radial-gradient(#f4bc00 5%, #cc3332);
+      cursor: pointer;
     }
     @media screen and (max-width: 600px) {
       padding: 5px 12px;

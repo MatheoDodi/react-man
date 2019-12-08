@@ -2,6 +2,11 @@ import { PUBLIC_KEY } from './key';
 
 const BASE_URL = 'https://gateway.marvel.com/v1/public/';
 
+const apiError = {
+  error:
+    'There was an error trying to connect to the API. Please try again later'
+};
+
 export const getCharacterByName = async characterName => {
   if (!characterName) {
     return {
@@ -19,22 +24,16 @@ export const getCharacterByName = async characterName => {
       data: { results }
     } = await response.json();
 
-    if (results.length) {
+    if (results.length > 0) {
       const character = results[0];
-
-      // Constructs new character obj with pre-formatted thumbnail property
-      const characterWithThumbnail = {
-        ...character,
-        thumbnail: `${character.thumbnail.path}.${character.thumbnail.extension}`
-      };
-      return characterWithThumbnail;
+      return character;
     }
 
     return {
       error: 'No matches found'
     };
   } catch (err) {
-    console.log(err);
+    return apiError;
   }
 };
 
@@ -45,7 +44,6 @@ export const getComicsByCharacterId = async id => {
     };
   }
 
-  console.log('ID ', id);
   try {
     // if name given is more than one word, replaces spaces with URL query supported format
     const response = await fetch(
@@ -64,6 +62,6 @@ export const getComicsByCharacterId = async id => {
       error: 'No matches found'
     };
   } catch (err) {
-    console.log(err);
+    return apiError;
   }
 };
