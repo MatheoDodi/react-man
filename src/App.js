@@ -1,10 +1,10 @@
-import React from "react";
-import Hero from "./components/Hero";
-import Navbar from "./components/common/Navbar";
-import Main from "./components/Main";
-import Carousel from "./components/Carousel";
+import React from 'react';
+import Hero from './components/Hero';
+import Navbar from './components/common/Navbar';
+import Main from './components/Main';
+import Carousel from './components/Carousel';
 
-function App() {
+const App = () => {
   return (
     <>
       <Navbar />
@@ -13,6 +13,6 @@ function App() {
       <Carousel />
     </>
   );
-}
+};
 
 export default App;
