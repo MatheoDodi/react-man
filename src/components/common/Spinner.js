@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import { PropTypes } from 'prop-types';
 
-const Spinner = () => {
+const Spinner = ({ color }) => {
   return (
     <Container>
-      <LoadingSpinner>
+      <LoadingSpinner color={color}>
         <div></div>
         <div></div>
         <div></div>
@@ -20,8 +21,12 @@ const Spinner = () => {
 
 export default Spinner;
 
+Spinner.propTypes = {
+  color: PropTypes.string.isRequired
+};
+
 const Container = styled.div`
-  height: 100vh;
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -44,7 +49,7 @@ const LoadingSpinner = styled.div`
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: #cc3332;
+    background: ${({ color }) => color};
     margin: -4px 0 0 -4px;
   }
   div:nth-child(1) {

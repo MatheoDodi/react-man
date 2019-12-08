@@ -41,15 +41,19 @@ const App = () => {
   ) : (
     <>
       <Navbar />
-      <Hero description={character && character.description} />
+      <Hero
+        loading={loading}
+        description={character && character.description}
+      />
       <Main
+        loading={loading}
         thumbnail={
           character &&
           `${character.thumbnail.path}.${character.thumbnail.extension}`
         }
         name={character && character.name}
       />
-      <Carousel comics={comics} />
+      <Carousel loading={loading} comics={comics} />
     </>
   );
 };

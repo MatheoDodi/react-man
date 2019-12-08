@@ -3,8 +3,9 @@ import { PropTypes } from 'prop-types';
 import styled from 'styled-components';
 import LazyLoad from 'react-lazyload';
 import Features from './Features';
+import Spinner from './common/Spinner';
 
-const Main = ({ thumbnail, name }) => {
+const Main = ({ thumbnail, name, loading }) => {
   return (
     <MainSection>
       <Heading>
@@ -12,9 +13,13 @@ const Main = ({ thumbnail, name }) => {
       </Heading>
       <FeaturesWrapper>
         <div>
-          <LazyLoad>
-            <img src={thumbnail} alt={`${name} thumbnail`} />
-          </LazyLoad>
+          {loading ? (
+            <Spinner color="#000" />
+          ) : (
+            <LazyLoad>
+              <img src={thumbnail} alt={`${name} thumbnail`} />
+            </LazyLoad>
+          )}
         </div>
         <Features />
       </FeaturesWrapper>
@@ -25,8 +30,9 @@ const Main = ({ thumbnail, name }) => {
 export default Main;
 
 Main.propTypes = {
-  thumbnail: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired
+  thumbnail: PropTypes.string,
+  name: PropTypes.string,
+  loading: PropTypes.bool.isRequired
 };
 
 const MainSection = styled.main`

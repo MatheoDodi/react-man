@@ -2,14 +2,15 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import styled from 'styled-components';
 import ironManMain from '../assets/img/iron-man.png';
+import Spinner from './common/Spinner';
 
-const Hero = ({ description }) => (
+const Hero = ({ description, loading }) => (
   <Section>
     <ImgContainer>
       <IMG src={ironManMain} alt="Chibi Iron Man" />
     </ImgContainer>
     <Wrapper>
-      <HeroText>{description} </HeroText>
+      {loading ? <Spinner color="#FFF" /> : <HeroText>{description} </HeroText>}
       <CTAButton>Get Started</CTAButton>
     </Wrapper>
   </Section>
@@ -18,7 +19,8 @@ const Hero = ({ description }) => (
 export default Hero;
 
 Hero.propTypes = {
-  description: PropTypes.string.isRequired
+  description: PropTypes.string,
+  loading: PropTypes.bool.isRequired
 };
 
 const Section = styled.section`

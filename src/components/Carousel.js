@@ -4,8 +4,9 @@ import styled from 'styled-components';
 import LazyLoad from 'react-lazyload';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Spinner from './common/Spinner';
 
-const Carousel = ({ comics }) => {
+const Carousel = ({ comics, loading }) => {
   const [visibleComics, setVisibleComics] = useState(5);
 
   // computes how many slides should appear on the carousel depending on the window's width
@@ -46,24 +47,28 @@ const Carousel = ({ comics }) => {
 
   return (
     <ComicSection>
-      <LazyLoad>
-        <Slider {...settings} slidesToShow={visibleComics}>
-          {comics.map(comic => (
-            <div key={comic.id}>
-              <a
-                href={comic.urls[0].url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Cover
-                  src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
-                  alt={`${comic.title} cover`}
-                />
-              </a>
-            </div>
-          ))}
-        </Slider>
-      </LazyLoad>
+      {loading ? (
+        <Spinner color="#000" />
+      ) : (
+        <LazyLoad>
+          <Slider {...settings} slidesToShow={visibleComics}>
+            {comics.map(comic => (
+              <div key={comic.id}>
+                <a
+                  href={comic.urls[0].url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Cover
+                    src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+                    alt={`${comic.title} cover`}
+                  />
+                </a>
+              </div>
+            ))}
+          </Slider>
+        </LazyLoad>
+      )}
     </ComicSection>
   );
 };
