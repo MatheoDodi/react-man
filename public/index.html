@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <base href="/" />
+    <!-- 
+      Depending on the browser, the service-worker might require
+      the line below to be uncommented
+    -->
+    <!-- <base href="/" /> -->
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -30,7 +34,13 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <script>
+    <!--
+      if you want to enable the service worker then you can do so
+      by uncommenting the <script> below. Make sure to also 
+        .register() the serviceWorker in src/index.js
+    -->
+
+    <!-- <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
           navigator.serviceWorker
@@ -53,7 +63,7 @@
       } else {
         console.log('Service Worker is not supported by browser.');
       }
-    </script>
+    </script> -->
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
