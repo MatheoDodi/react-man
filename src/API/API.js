@@ -1,3 +1,8 @@
+/* 
+key.js is included in .gitignore
+In order to make API calls please include your own
+PUBLIC API key which you can get from https://developer.marvel.com/
+*/
 import { PUBLIC_KEY } from './key';
 
 export const BASE_URL = 'https://gateway.marvel.com/v1/public/';
