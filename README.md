@@ -60,7 +60,7 @@ npm install
 npm start
 ```
 
-4. You should see an error that the `key.js` file is missing. You'll have to create your own `key.js` file inside the `API` directory and export a variable called `PUBLIC_KEY`. You can grab your own Public API key from `https://developer.marvel.com/`. e.g.
+4. You should see an error that the `key.js` file is missing. You'll have to create your own `key.js` file inside the `API` directory and export a variable called `PUBLIC_KEY`. You can grab your own Public API key from `https://developer.marvel.com/`.
 
 ```js
 // src/API/key.js
