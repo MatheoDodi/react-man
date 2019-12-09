@@ -38,8 +38,8 @@ const Section = styled.section`
     justify-content: center;
     align-items: center;
     padding: 7px 25px;
-    height: fit-content;
-    padding-bottom: 18rem;
+    height: 130vh;
+    padding-bottom: 3rem;
   }
 `;
 
@@ -54,6 +54,7 @@ const Wrapper = styled.div`
     max-width: 100%;
     text-align: center;
     align-items: center;
+    height: fit-content;
   }
 `;
 
@@ -63,12 +64,16 @@ const HeroText = styled.p`
 `;
 
 const CTAButton = styled.button`
+  box-sizing: border-box;
   margin-top: 1rem;
+  margin-bottom: 1rem;
   background: #f4bc00;
   color: #fff;
   font-size: 1.45rem;
   padding: 20px 80px;
+  height: fit-content;
   width: 320px;
+  height: 66px;
   border-radius: 5px;
   box-shadow: 3px 4px 9px rgba(360, 360, 360, 0.16);
   transition: all 0.5s ease;
@@ -89,7 +94,6 @@ const ImgContainer = styled.div`
 const IMG = styled.img`
   width: 80%;
   @media screen and (max-width: 800px) {
-    width: 50%;
     margin: 0 auto;
     display: block;
   }
