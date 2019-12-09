@@ -15,6 +15,7 @@
 
 - [About the Repo](#about-the-project)
   - [Built With](#built-with)
+  - [Audits](#audits)
 - [Getting Started](#getting-started)
   - [Installation](#installation)
   - [Tests](#tests)
@@ -33,6 +34,12 @@ React powered landing page about superhero information that interacts wtih the M
 - [styled-components](https://www.styled-components.com/)
 - [react-slick](https://github.com/akiran/react-slick)
 - [react-lazyload](https://github.com/twobin/react-lazyload)
+
+### Audits
+
+<p align="center">
+<img src="audit.png" alt="React Logo" width="50%">
+</p>
 
 <!-- GETTING STARTED -->
 
