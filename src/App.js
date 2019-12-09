@@ -16,6 +16,8 @@ const App = () => {
 
   useEffect(() => {
     (async () => {
+      // You can force the ErrorPage to appear by leaving the character
+      // name blank in the function below
       const charResponse = await getCharacterByName('Iron Man');
       const comicsResponse = await getComicsByCharacterId(charResponse.id);
 
