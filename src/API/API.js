@@ -1,13 +1,14 @@
 import { PUBLIC_KEY } from './key';
 
-const BASE_URL = 'https://gateway.marvel.com/v1/public/';
+export const BASE_URL = 'https://gateway.marvel.com/v1/public/';
 
 const apiError = {
   error:
     'There was an error trying to connect to the API. Please try again later'
 };
 
-export const getCharacterByName = async characterName => {
+// fetchFn is a mock that only gets passed during testing
+export const getCharacterByName = async (characterName, fetchFn = fetch) => {
   if (!characterName) {
     return {
       error: 'No character provided'
@@ -17,9 +18,10 @@ export const getCharacterByName = async characterName => {
   try {
     // if name given is more than one word, replaces spaces with URL query supported format
     const nameQuery = characterName.replace(' ', '%20');
-    const response = await fetch(
+    const response = await fetchFn(
       `${BASE_URL}characters?name=${nameQuery}&apikey=${PUBLIC_KEY}`
     );
+
     const {
       data: { results }
     } = await response.json();
@@ -37,7 +39,7 @@ export const getCharacterByName = async characterName => {
   }
 };
 
-export const getComicsByCharacterId = async id => {
+export const getComicsByCharacterId = async (id, fetchFn = fetch) => {
   if (!id) {
     return {
       error: 'No character ID provided'
@@ -46,7 +48,7 @@ export const getComicsByCharacterId = async id => {
 
   try {
     // if name given is more than one word, replaces spaces with URL query supported format
-    const response = await fetch(
+    const response = await fetchFn(
       `${BASE_URL}characters/${id}/comics?apikey=${PUBLIC_KEY}`
     );
 

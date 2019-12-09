@@ -39,7 +39,7 @@ const Section = styled.section`
     align-items: center;
     padding: 7px 25px;
     height: 130vh;
-    padding-bottom: 3rem;
+    padding-bottom: 7rem;
   }
 `;
 
