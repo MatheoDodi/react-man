@@ -4,9 +4,9 @@
 <br />
 <p align="center">
     <img src="https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png" alt="React Logo" width="100">
-    <img src="https://enterpriseengineeringnetwork.org/images/iron-man-logo-png-9.png" alt="Iron Man Logo" width="80">
+    <img src="https://enterpriseengineeringnetwork.org/images/iron-man-logo-png-9.png" alt="Iron Man Logo" width="65">
 
-  <h3 align="center">PyREST</h3>
+  <h3 align="center">React Man</h3>
 </p>
 
 <!-- TABLE OF CONTENTS -->
@@ -17,20 +17,22 @@
   - [Built With](#built-with)
 - [Getting Started](#getting-started)
   - [Installation](#installation)
+  - [Tests](#tests)
 - [Contributing](#contributing)
-- [What Did I Learn](#what-did-i-learn)
 - [Contact](#contact)
 
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
 
-Building a spider with Scrapy to crawl websites and extract DATA.
+React powered landing page about superhero information that interacts wtih the Marvel (RESTful) API. I hope you enjoy!
 
 ### Built With
 
-- [Python](https://docs.python.org/3/)
-- [Flask](http://flask.pocoo.org/docs/1.0/)
+- [React](https://reactjs.org/)
+- [styled-components](https://www.styled-components.com/)
+- [react-slick](https://github.com/akiran/react-slick)
+- [react-lazyload](https://github.com/twobin/react-lazyload)
 
 <!-- GETTING STARTED -->
 
@@ -43,7 +45,7 @@ To get a local copy up and running follow these simple steps.
 1. Clone the repo
 
 ```sh
-git clone https://github.com/MatthewDodi/PyREST.git
+git clone https://github.com/MatthewDodi/react-man.git
 ```
 
 2. Install NPM packages
@@ -58,6 +60,16 @@ npm install
 npm start
 ```
 
+### Tests
+
+1. You can run the unit tests by running
+
+```sh
+npm test
+```
+
+2. And then pressing `a` to run all
+
 <!-- CONTRIBUTING -->
 
 ## Contributing
@@ -70,17 +82,13 @@ Contributions are what make the open source community such an amazing place to l
 4. Push to the Branch (`git push origin feature/AwesomeFeature`)
 5. Open a Pull Request
 
-## What Did I Learn
-
-- TBD
-
 <!-- CONTACT -->
 
 ## Contact
 
 Matthew Dodi - [in/MatthewDodi](https://linkedin.com/in/MatthewDodi) - matthew.dodi@gmail.com
 
-Project Link: [https://github.com/MatthewDodi/PyREST.git](https://github.com/MatthewDodi/PyREST.git)
+Project Link: [https://react-man.netlify.com/](https://react-man.netlify.com/)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
