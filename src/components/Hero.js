@@ -39,7 +39,7 @@ const Section = styled.section`
     align-items: center;
     padding: 7px 25px;
     height: 130vh;
-    padding-bottom: 7rem;
+    padding-bottom: 10rem;
   }
 `;
 
@@ -87,7 +87,7 @@ const ImgContainer = styled.div`
   flex-basis: 35%;
   margin-right: 2rem;
   @media screen and (max-width: 800px) {
-    margin-top: 25vw;
+    margin-top: 30vw;
   }
 `;
 
